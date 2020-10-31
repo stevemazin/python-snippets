@@ -36,7 +36,6 @@ def print_board():
     print(f'--+---+--')
     print(f"{board[6]} | {board[7]} | {board[8]}")
 
-
 def check_winner():
     winner = None
     win_combinations = {
@@ -56,7 +55,6 @@ def check_winner():
             ):
                 winner = True
     return winner
-
 
 moves_made = 0
 print('welcome to TIC TAC TOE!!!')
@@ -80,9 +78,15 @@ while True:
             print('Player 1 has WON!')
             break
     elif moves_made == 9:
-        print_board()
-        print('DRAW')
-        break
+        result = check_winner()
+        if result == True:
+            print_board()
+            print('Player 1 has WON!')
+            break
+        else:
+            print_board()
+            print('DRAW!')
+            break
     
     # PLAYER 2
     print_board()
@@ -97,12 +101,18 @@ while True:
     moves_made += 1
     # CHECK FOR A WINNER
     if moves_made > 4 and moves_made < 9:
-       result = check_winner()
-       if result == True:
+        result = check_winner()
+        if result == True:
            print_board()
            print('Player 2 has WON!')
            break
     elif moves_made == 9:
-        print_board()
-        print('DRAW')
-        break
+        result = check_winner()
+        if result == True:
+            print_board()
+            print('Player 2 has WON!')
+            break
+        else:
+            print_board()
+            print('DRAW!')
+            break
